@@ -38,3 +38,16 @@ def test_auth(client):
     assert response.status_code == 200
     token = response.json['token']
     assert token is not None
+
+def test_auth_missing_password(self):
+    response = self.app.post('/auth', json={'email': 'test@example.com'})
+    self.assertEqual(response.status_code, 400)
+    self.assertEqual(response.get_json()['message'], "Missing parameter: password")
+
+def test_contents_missing_token(self):
+        response = self.app.get('/contents')
+        self.assertEqual(response.status_code, 401)
+
+def test_contents_invalid_token(self):
+        response = self.app.get('/contents', headers={'Authorization': 'Bearer invalidtoken'})
+        self.assertEqual(response.status_code, 401)
