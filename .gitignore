@@ -29,3 +29,8 @@ htmlcov/
 .direnv
 
 .github/**
+
+venv
+
+examples/Deploy_Flask_App/docker_accress_token.png
+examples/Deploy_Flask_App/docker_accress_token_copy.txt
